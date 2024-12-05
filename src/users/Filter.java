@@ -15,9 +15,7 @@ public class Filter {
         for (T item : items) {
             boolean match = true;
             for (Predicate<T> c : conditions) {
-                if (!c.test(item)) {
-                    match = false;
-                }
+                match = match && c.test(item);
             }
             if (match) {
                 filtered.add(item);
